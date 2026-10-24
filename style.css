@@ -1,0 +1,296 @@
+/* Цвета сайта в одном месте — меняешь здесь, меняется везде */
+:root {
+  --bg: #0e0e0e;
+  --bg-light: #171717;
+  --text: #f2efe9;
+  --muted: #9a958c;
+  --gold: #c9a35b;
+  --line: #2a2a2a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(14, 14, 14, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  font-size: 15px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+/* Первый экран */
+/* Фото на фоне + тёмный слой поверх, чтобы текст читался */
+.hero {
+  padding: 140px 0 120px;
+  background:
+    linear-gradient(90deg, rgba(14, 14, 14, 0.95) 0%, rgba(14, 14, 14, 0.75) 50%, rgba(14, 14, 14, 0.45) 100%),
+    url('images/hero.jpg') center / cover no-repeat,
+    var(--bg);
+}
+
+.hero__label {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.hero__text {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* Кнопка */
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  background: #d9b56f;
+  transform: translateY(-2px);
+}
+
+/* Заголовки секций */
+section {
+  padding: 90px 0;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 48px;
+}
+
+/* Услуги */
+.services {
+  background: var(--bg-light);
+}
+
+.price-list {
+  list-style: none;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.price-item h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.price-item p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.price {
+  color: var(--gold);
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Почему мы */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.feature__num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.feature h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: var(--muted);
+}
+
+/* Контакты */
+.contacts {
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.contacts__line {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.contacts__phone {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);
+  margin: 24px 0 32px;
+}
+
+.footer {
+  padding: 30px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  border-top: 1px solid var(--line);
+}
+
+/* Телефоны: всё в одну колонку, шрифты меньше */
+@media (max-width: 768px) {
+  .nav {
+    gap: 16px;
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+
+  /* На телефоне затемняем равномерно — текст занимает всю ширину */
+  .hero {
+    padding: 80px 0 70px;
+    background:
+      linear-gradient(rgba(14, 14, 14, 0.8), rgba(14, 14, 14, 0.8)),
+      url('images/hero.jpg') 65% center / cover no-repeat,
+      var(--bg);
+  }
+
+  .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__title br {
+    display: none;
+  }
+
+  .hero__text {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 30px;
+    margin-bottom: 32px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .price-item h3 {
+    font-size: 17px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+}
